@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Know Your Rights | California Workers</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;450;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F5EE; --paper-2:#FFFFFF; --ink:#20251F; --ink-soft:#525951; --ink-faint:#8B9187;
+    --poppy:#E1872E; --poppy-deep:#C16E1B; --coral:#C24A33; --teal:#2F8C7F; --teal-deep:#236A5F; --sage:#E8EDE6;
+    --line:rgba(32,37,31,0.12); --line-2:rgba(32,37,31,0.06);
+    --shadow:0 1px 2px rgba(32,37,31,.04), 0 16px 36px -22px rgba(32,37,31,.26);
+    --serif:"Fraunces",Georgia,serif; --sans:"Public Sans",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--sans); font-weight:450; line-height:1.55; -webkit-font-smoothing:antialiased; font-feature-settings:"ss01","cv01"}
+  body::before{content:""; position:fixed; inset:0; z-index:-2; pointer-events:none; background:radial-gradient(110% 70% at 88% -10%, rgba(225,135,46,.14), transparent 55%), radial-gradient(85% 60% at -8% -4%, rgba(47,140,127,.10), transparent 52%)}
+  body::after{content:""; position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:.025; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 24px}
+  a{color:inherit}
+  nav{position:sticky; top:0; z-index:1000; backdrop-filter:saturate(1.3) blur(10px); background:rgba(247,245,238,.85); border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; height:60px}
+  .brand{font-family:var(--serif); font-weight:600; font-size:1.05rem; letter-spacing:-.01em; display:flex; align-items:center; gap:.55rem}
+  .brand .dot{width:9px; height:9px; border-radius:50%; background:var(--poppy)}
+  .navlinks{display:flex; gap:1.6rem; font-size:.86rem; font-weight:600}
+  .navlinks a{text-decoration:none; color:var(--ink-soft); transition:color .2s}
+  .navlinks a:hover{color:var(--teal-deep)}
+  @media(max-width:680px){.navlinks{display:none}}
+  .navright{display:flex; align-items:center; gap:1.1rem}
+  .langtoggle{display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; background:var(--paper-2)}
+  .langtoggle button{border:0; background:transparent; padding:5px 11px; font-family:var(--sans); font-size:.76rem; font-weight:700; color:var(--ink-faint); cursor:pointer; transition:background .15s,color .15s}
+  .langtoggle button.on{background:var(--teal); color:#fff}
+  header.hero{padding:80px 0 54px; position:relative}
+  .overline{font-size:.72rem; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--poppy-deep)}
+  h1{font-family:var(--serif); font-weight:600; letter-spacing:-.025em; font-size:clamp(2.6rem,6.5vw,4.7rem); line-height:1.02; margin:.5rem 0 0; font-variation-settings:"opsz" 144}
+  h1 em{font-style:italic; color:var(--coral); margin-right:.08em}
+  .lede{max-width:46ch; margin:1.4rem 0 0; font-size:1.12rem; color:var(--ink-soft); line-height:1.6}
+  .rise{opacity:0; transform:translateY(16px); animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes rise{to{opacity:1; transform:none}}
+  .d1{animation-delay:.05s}.d2{animation-delay:.15s}.d3{animation-delay:.27s}.d4{animation-delay:.4s}
+  section{padding:30px 0 10px; scroll-margin-top:76px}
+  .sec-head{margin-bottom:1.6rem}
+  .sec-head h2{font-family:var(--serif); font-weight:600; font-size:clamp(1.7rem,3.4vw,2.4rem); letter-spacing:-.02em; margin:.35rem 0 0; line-height:1.08}
+  .sec-head p{color:var(--ink-soft); max-width:60ch; margin:.65rem 0 0}
+  .rates{display:grid; grid-template-columns:repeat(4,1fr); gap:14px}
+  @media(max-width:860px){.rates{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:460px){.rates{grid-template-columns:1fr}}
+  .card{background:var(--paper-2); border:1px solid var(--line); border-radius:16px; padding:20px 20px 18px; box-shadow:var(--shadow); position:relative; overflow:hidden; transition:transform .25s ease, box-shadow .25s ease}
+  .card:hover{transform:translateY(-4px); box-shadow:0 1px 2px rgba(32,37,31,.05), 0 26px 46px -26px rgba(32,37,31,.36)}
+  .card .bar{position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--poppy),var(--coral))}
+  .card .lab{font-size:.74rem; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--ink-faint)}
+  .card .num{font-family:var(--mono); font-weight:700; font-size:2.15rem; letter-spacing:-.02em; margin:.5rem 0 .15rem; line-height:1}
+  .card .num small{font-size:1rem; color:var(--ink-faint); font-weight:500}
+  .card .sub{font-size:.82rem; color:var(--ink-soft); line-height:1.45}
+  .principle{margin-top:18px; display:flex; gap:14px; align-items:flex-start; padding:16px 18px; border-radius:14px; border:1px dashed var(--poppy); background:linear-gradient(180deg, rgba(225,135,46,.08), rgba(225,135,46,.02))}
+  .principle .ic{color:var(--poppy-deep); font-size:1.2rem; line-height:1.2}
+  .principle p{margin:0; font-size:.92rem; color:var(--ink-soft)}
+  .principle b{color:var(--ink)}
+  .map-grid{display:grid; grid-template-columns:1.25fr 1fr; gap:16px; align-items:stretch}
+  @media(max-width:880px){.map-grid{grid-template-columns:1fr}}
+  .panel{background:var(--paper-2); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); overflow:hidden}
+  #mapPanel{position:relative}
+  #caMapWrap{height:540px; width:100%; display:flex; align-items:center; justify-content:center; touch-action:none}
+  @media(max-width:880px){#caMapWrap{height:440px}}
+  #caMap{width:100%; height:100%; cursor:grab; display:block}
+  .city{cursor:pointer; transition:opacity .15s}
+  .city.sel{stroke:#20251F; stroke-width:1.6}
+  .maplbl{font-family:var(--sans); font-size:9px; font-weight:600; fill:var(--ink-soft); paint-order:stroke; stroke:#FFFFFF; stroke-width:2.6px; stroke-linejoin:round; pointer-events:none}
+  .zoomctl{position:absolute; top:12px; right:12px; display:flex; flex-direction:column; gap:6px; z-index:6}
+  .zoomctl button{width:34px; height:34px; border:1px solid var(--line); background:rgba(255,255,255,.92); border-radius:9px; font-size:1.1rem; font-weight:700; color:var(--ink-soft); cursor:pointer; box-shadow:var(--shadow); line-height:1; display:flex; align-items:center; justify-content:center; transition:background .15s,color .15s}
+  .zoomctl button:hover{background:#fff; color:var(--teal-deep)}
+  .maphint{position:absolute; bottom:10px; left:14px; z-index:6; font-size:.72rem; color:var(--ink-faint); background:rgba(255,255,255,.7); padding:3px 8px; border-radius:6px; pointer-events:none}
+  .map-tip{position:absolute; z-index:7; transform:translate(-50%,-112%); background:var(--ink); color:#F7F5EE; padding:8px 12px; border-radius:10px; box-shadow:var(--shadow); pointer-events:none; opacity:0; transition:opacity .12s; min-width:120px; text-align:center}
+  .map-tip.show{opacity:1}
+  .map-tip b{font-family:var(--serif); font-weight:600; font-size:.95rem; display:block}
+  .map-tip .tw{font-family:var(--mono); font-weight:700; font-size:1.15rem; color:var(--poppy); display:block; margin:.1rem 0}
+  .map-tip .tn{font-size:.72rem; color:#AEB4AA; display:block; line-height:1.35}
+  .map-tip::after{content:""; position:absolute; bottom:-6px; left:50%; transform:translateX(-50%); border:6px solid transparent; border-top-color:var(--ink); border-bottom:0}
+  .listcol{display:flex; flex-direction:column; min-height:0}
+  .listcol .filt{padding:14px 14px 12px; border-bottom:1px solid var(--line-2)}
+  .filt label{font-size:.74rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-faint); display:block; margin-bottom:7px}
+  .filt input{width:100%; padding:10px 13px; border:1px solid var(--line); border-radius:10px; background:var(--paper); font-family:var(--sans); font-size:.95rem; color:var(--ink)}
+  .filt input:focus{outline:2px solid rgba(47,140,127,.4); border-color:var(--teal)}
+  .sr{display:none; margin:12px 14px 0; padding:14px 16px; border-radius:12px; border:1px solid var(--line)}
+  .sr-found{background:linear-gradient(180deg, rgba(225,135,46,.10), rgba(225,135,46,.03)); border-color:rgba(225,135,46,.35)}
+  .sr-state{background:linear-gradient(180deg, rgba(47,140,127,.10), rgba(47,140,127,.03)); border-color:rgba(47,140,127,.4)}
+  .sr-none{background:rgba(32,37,31,.04)}
+  .sr-city{font-family:var(--serif); font-weight:600; font-size:1.05rem}
+  .sr-rate{font-family:var(--mono); font-weight:700; font-size:1.9rem; letter-spacing:-.02em; margin:.15rem 0; color:var(--coral)}
+  .sr-state .sr-rate{color:var(--teal-deep)}
+  .sr-rate small{font-size:.9rem; color:var(--ink-faint); font-weight:500}
+  .sr-note{font-size:.8rem; color:var(--ink-soft); line-height:1.45}
+  .sr-multi{font-size:.88rem; color:var(--ink-soft); font-weight:500}
+  .citylist{overflow-y:auto; max-height:336px; padding:6px}
+  @media(max-width:880px){.citylist{max-height:300px}}
+  .crow{display:flex; align-items:center; gap:11px; padding:9px 11px; border-radius:10px; cursor:pointer; transition:background .15s; border:1px solid transparent}
+  .crow:hover{background:var(--paper)}
+  .crow.on{background:rgba(225,135,46,.12); border-color:rgba(225,135,46,.35)}
+  .crow .swatch{width:11px; height:11px; border-radius:50%; flex:0 0 auto; box-shadow:0 0 0 3px rgba(0,0,0,.04)}
+  .crow .nm{flex:1; font-size:.9rem; font-weight:500}
+  .crow .wg{font-family:var(--mono); font-weight:700; font-size:.92rem}
+  .crow.hide{display:none}
+  .legend{display:flex; align-items:center; gap:12px; padding:12px 16px; border-top:1px solid var(--line-2); font-size:.78rem; color:var(--ink-faint)}
+  .legend .grad{flex:1; height:9px; border-radius:5px; background:linear-gradient(90deg,#F2D49A,#E1872E,#C24A33)}
+  .legend span{font-family:var(--mono); font-weight:700; color:var(--ink-soft)}
+  .charts{display:grid; grid-template-columns:1.1fr 1fr; gap:16px}
+  @media(max-width:880px){.charts{grid-template-columns:1fr}}
+  .chart-card{background:var(--paper-2); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); padding:20px}
+  .chart-card h3{font-family:var(--serif); font-weight:600; font-size:1.2rem; margin:0 0 .2rem; letter-spacing:-.01em}
+  .chart-card .ch-sub{font-size:.82rem; color:var(--ink-faint); margin:0 0 14px}
+  .ch-box{position:relative; height:300px}
+  .calc-inputs{display:flex; gap:14px; margin-bottom:16px}
+  .calc-inputs label{flex:1; font-size:.74rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-faint)}
+  .ci{display:flex; align-items:center; border:1px solid var(--line); border-radius:10px; background:var(--paper); margin-top:6px; overflow:hidden}
+  .ci span{padding:0 2px 0 12px; font-family:var(--mono); color:var(--ink-faint)}
+  .calc-inputs input{width:100%; padding:10px 12px; border:none; background:transparent; font-family:var(--mono); font-weight:700; font-size:1rem; color:var(--ink)}
+  .calc-inputs > label > input{border:1px solid var(--line); border-radius:10px; margin-top:6px; padding:10px 12px}
+  .calc-inputs input:focus{outline:2px solid rgba(47,140,127,.4)}
+  .calc-out{font-size:.95rem; color:var(--ink-soft); margin-bottom:18px; line-height:1.4}
+  .calc-out b{font-family:var(--mono); color:var(--ink); font-size:1.3rem; font-weight:700; letter-spacing:-.01em}
+  .calc-out .yr{color:var(--teal-deep)}
+  .bar-row{margin-bottom:11px}
+  .bar-top{display:flex; justify-content:space-between; font-size:.8rem; margin-bottom:4px; color:var(--ink-soft)}
+  .bar-top .bv{font-family:var(--mono); font-weight:700; color:var(--ink)}
+  .bar-track{height:13px; background:rgba(32,37,31,.06); border-radius:7px; overflow:hidden}
+  .bar-fill{height:100%; border-radius:7px; width:0; transition:width .5s cubic-bezier(.2,.7,.2,1)}
+  .calc-foot{font-size:.74rem; color:var(--ink-faint); margin-top:14px; font-style:italic}
+  .recap-row{margin-bottom:18px}
+  .recap-head{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px; gap:10px}
+  .recap-lab{font-size:.84rem; font-weight:600; color:var(--ink-soft)}
+  .recap-yr{font-family:var(--mono); font-weight:700; font-size:1.65rem; letter-spacing:-.02em; color:var(--ink); white-space:nowrap}
+  .recap-yr small{font-size:.85rem; color:var(--ink-faint); font-weight:500}
+  .recap-row.ca .recap-yr{color:var(--coral)}
+  .recap-break{font-family:var(--mono); font-size:.78rem; color:var(--ink-faint); margin-top:7px}
+  .recap-gap{margin-top:20px; padding:14px 16px; border-radius:12px; background:linear-gradient(180deg,rgba(47,140,127,.10),rgba(47,140,127,.03)); border:1px solid rgba(47,140,127,.3); font-size:.9rem; color:var(--ink-soft); line-height:1.45}
+  .recap-gap b{color:var(--ink)}
+  .ot-card{background:var(--paper-2); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); padding:24px}
+  .ot-days{display:grid; grid-template-columns:repeat(7,1fr); gap:10px}
+  @media(max-width:760px){.ot-days{grid-template-columns:repeat(4,1fr)}}
+  @media(max-width:430px){.ot-days{grid-template-columns:repeat(3,1fr)}}
+  .ot-days label{font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-faint); display:flex; flex-direction:column; gap:6px}
+  .ot-days input{width:100%; padding:10px 6px; border:1px solid var(--line); border-radius:10px; background:var(--paper); font-family:var(--mono); font-weight:700; font-size:1rem; color:var(--ink); text-align:center}
+  .ot-days input:focus{outline:2px solid rgba(47,140,127,.4); border-color:var(--teal)}
+  .ot-rate-wrap{margin-top:16px; max-width:280px}
+  .ot-rate-wrap label{font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-faint); display:block; margin-bottom:6px}
+  .ot-rate-wrap .opt{text-transform:none; letter-spacing:0; font-weight:500}
+  .ot-rate-wrap .ci{display:flex; align-items:center; border:1px solid var(--line); border-radius:10px; background:var(--paper); overflow:hidden}
+  .ot-rate-wrap .ci span{padding:0 2px 0 12px; font-family:var(--mono); color:var(--ink-faint)}
+  .ot-rate-wrap input{width:100%; padding:10px 12px; border:none; background:transparent; font-family:var(--mono); font-weight:700; font-size:1rem; color:var(--ink)}
+  .ot-rate-wrap input:focus{outline:2px solid rgba(47,140,127,.4)}
+  .ot-results{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:22px}
+  @media(max-width:640px){.ot-results{grid-template-columns:repeat(2,1fr)}}
+  .ot-stat{background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:16px; text-align:center; position:relative; overflow:hidden}
+  .ot-stat::before{content:""; position:absolute; top:0; left:0; right:0; height:3px; background:var(--ink-faint)}
+  .ot-stat.ot-ot::before{background:var(--poppy)}
+  .ot-stat.ot-dt::before{background:var(--coral)}
+  .ot-stat.ot-tot::before{background:var(--teal)}
+  .ot-lab{font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-soft)}
+  .ot-lab span{font-family:var(--mono); color:var(--ink-faint); font-weight:700; margin-left:3px}
+  .ot-num{font-family:var(--mono); font-weight:700; font-size:2.2rem; letter-spacing:-.02em; line-height:1; margin:.4rem 0 .25rem; color:var(--ink)}
+  .ot-stat.ot-ot .ot-num{color:var(--poppy-deep)}
+  .ot-stat.ot-dt .ot-num{color:var(--coral)}
+  .ot-stat.ot-tot .ot-num{color:var(--teal-deep)}
+  .ot-sub{font-size:.72rem; color:var(--ink-faint)}
+  .ot-note{margin-top:16px; font-size:.85rem; color:var(--teal-deep); font-weight:600; min-height:1.1em}
+  .ot-pay{display:none; margin-top:8px; font-size:.9rem; color:var(--ink-soft)}
+  .ot-pay b{font-family:var(--mono); color:var(--ink); font-weight:700}
+  .ot-foot{margin-top:16px; font-size:.74rem; color:var(--ink-faint); font-style:italic; line-height:1.5}
+  .rights{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+  @media(max-width:860px){.rights{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.rights{grid-template-columns:1fr}}
+  .right{background:var(--paper-2); border:1px solid var(--line); border-radius:14px; padding:20px; box-shadow:var(--shadow); display:flex; flex-direction:column}
+  .right h3{font-family:var(--serif); font-weight:600; font-size:1.18rem; margin:0 0 .5rem; letter-spacing:-.01em}
+  .right p{font-size:.9rem; color:var(--ink-soft); margin:0 0 14px; line-height:1.5}
+  .cites{margin-top:auto; display:flex; flex-wrap:wrap; gap:6px}
+  .chip{font-family:var(--mono); font-size:.7rem; font-weight:700; padding:4px 8px; border-radius:6px; background:rgba(32,37,31,.05); border:1px solid var(--line); color:var(--ink-soft); white-space:nowrap}
+  a.chip{text-decoration:none; cursor:pointer; transition:border-color .15s, color .15s, background .15s}
+  a.chip:hover{border-color:var(--teal); color:var(--teal-deep); background:rgba(47,140,127,.09)}
+  a.chip:focus-visible{outline:2px solid var(--teal); outline-offset:2px}
+  footer{margin-top:50px; background:var(--ink); color:#E5E8E2; padding:48px 0 40px}
+  footer .wrap{display:grid; grid-template-columns:1.4fr 1fr; gap:32px}
+  @media(max-width:760px){footer .wrap{grid-template-columns:1fr}}
+  footer h4{font-family:var(--serif); font-weight:600; font-size:1.25rem; margin:0 0 .6rem; color:#fff}
+  footer p{font-size:.85rem; color:#A7ADA4; line-height:1.6; margin:0 0 .9rem; max-width:52ch}
+  footer .src{font-size:.78rem; color:#878d83; line-height:1.7}
+  footer .src b{color:#CFD4CB; font-weight:600}
+  footer .upd{display:inline-block; margin-top:6px; font-family:var(--mono); font-size:.72rem; color:var(--poppy); letter-spacing:.02em}
+  .madeby{max-width:1120px; margin:30px auto 0; padding:18px 24px 0; border-top:1px solid rgba(255,255,255,.12); text-align:center; font-size:.8rem; color:#8d938a; letter-spacing:.03em}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span> <span data-t="brand">California Worker Rights</span></div>
+    <div class="navright">
+      <div class="navlinks"><a href="#wages" data-t="nav_wages">Wages</a><a href="#map" data-t="nav_map">Map</a><a href="#trends" data-t="nav_trends">Trends</a><a href="#overtime" data-t="nav_ot">Overtime</a><a href="#rights" data-t="nav_rights">Your Rights</a></div>
+      <div class="langtoggle"><button data-lang="en">EN</button><button data-lang="es">ES</button></div>
+    </div>
+  </div>
+</nav>
+<header class="hero">
+  <div class="wrap">
+    <div class="overline rise d1" data-t="hero_over">California &middot; Updated 2026</div>
+    <h1 class="rise d2" data-t="hero_h1">Know what you're<br><em>owed</em> at work.</h1>
+    <p class="lede rise d3" data-t="hero_lede">A plain-language guide to California wage and hour law. Find the minimum wage for your city, plus your rights to breaks, overtime, sick leave, and a timely final paycheck, with the governing code section for each.</p>
+  </div>
+</header>
+<section id="wages">
+  <div class="wrap">
+    <div class="sec-head"><div class="overline" data-t="w_over">The headline numbers</div><h2 data-t="w_h2">Minimum wage in California</h2><p data-t="w_p">The statewide floor applies to every employer, regardless of size. Some industries and most large cities require more.</p></div>
+    <div class="rates">
+      <div class="card"><div class="bar"></div><div class="lab" data-t="rc_state_lab">Statewide</div><div class="num">$16.90<small data-t="u_hr">/hr</small></div><div class="sub" data-t="rc_state_sub">Applies to all employers and adjusts each January&nbsp;1 for inflation (Lab. Code &sect;1182.12).</div></div>
+      <div class="card"><div class="bar"></div><div class="lab" data-t="rc_ff_lab">Fast food</div><div class="num">$20.00<small data-t="u_hr">/hr</small></div><div class="sub" data-t="rc_ff_sub">For national chains with 60 or more locations, set by the Fast Food Council (AB&nbsp;1228).</div></div>
+      <div class="card"><div class="bar"></div><div class="lab" data-t="rc_hc_lab">Health care</div><div class="num">$18.63<small data-t="u_hr">/hr</small></div><div class="sub" data-t="rc_hc_sub">Varies by facility type, up to $24 (SB&nbsp;525). Most tiers rise July&nbsp;1, 2026, and the largest systems reach $25.</div></div>
+      <div class="card"><div class="bar"></div><div class="lab" data-t="rc_ex_lab">Exempt salary</div><div class="num">$70,304<small data-t="u_yr">/yr</small></div><div class="sub" data-t="rc_ex_sub">The minimum salary to classify an employee as exempt, set at twice the state minimum wage for full-time work.</div></div>
+    </div>
+    <div class="principle"><span class="ic">&#9650;</span><p data-t="prin"><b>You are always entitled to the highest minimum wage that applies to you.</b> The federal rate is $7.25, but California's $16.90 takes precedence, and a higher city or industry rate takes precedence over that. For example, a retail worker in San Francisco is owed the city's $19.18 rather than the state's $16.90.</p></div>
+  </div>
+</section>
+<section id="map">
+  <div class="wrap">
+    <div class="sec-head"><div class="overline" data-t="m_over">Local ordinances</div><h2 data-t="m_h2">What's the minimum where you work?</h2><p data-t="m_p">More than 40 California cities and counties set a minimum wage above the state floor. Your rate is based on where you physically work, not where your employer is headquartered. Search for your city, or zoom in and select a dot.</p></div>
+    <div class="map-grid">
+      <div class="panel" id="mapPanel">
+        <div id="caMapWrap"><svg id="caMap" preserveAspectRatio="xMidYMid meet"></svg></div>
+        <div class="zoomctl"><button id="zin" aria-label="Zoom in">+</button><button id="zout" aria-label="Zoom out">&minus;</button><button id="zreset" aria-label="Reset view">&#10227;</button></div>
+        <div class="maphint" data-t="m_hint">Drag to pan &middot; scroll or +/&minus; to zoom</div>
+        <div class="map-tip" id="mapTip"></div>
+      </div>
+      <div class="panel listcol">
+        <div class="filt"><label for="cityFilter" data-t="m_find">Find your city</label><input id="cityFilter" type="text" data-t-ph="m_ph" placeholder="e.g. Sacramento, Fresno, Oakland…" autocomplete="off"></div>
+        <div class="sr" id="searchResult"></div>
+        <div class="citylist" id="cityList"></div>
+        <div class="legend"><span>$17</span><div class="grad"></div><span>$20.25</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="trends">
+  <div class="wrap">
+    <div class="sec-head"><div class="overline" data-t="t_over">The data</div><h2 data-t="t_h2">What the wage really means</h2><p data-t="t_p">California ties its minimum wage to the cost of living, so it rises every year. The federal floor has been frozen since 2009. The chart below shows that trend, and the panel beside it shows what each rate adds up to over a year of work.</p></div>
+    <div class="charts">
+      <div class="chart-card"><h3 data-t="t_c1_t">California vs. federal minimum</h3><p class="ch-sub" data-t="t_c1_s">Statewide hourly rate, January 1 each year</p><div class="ch-box"><canvas id="trendChart"></canvas></div></div>
+      <div class="chart-card">
+        <h3 data-t="t_rc_t">The yearly reality</h3><p class="ch-sub" data-t="t_rc_s">Full-time minimum wage (40 hrs/week, all year), California vs. federal</p>
+        <div class="recap">
+          <div class="recap-row ca">
+            <div class="recap-head"><span class="recap-lab" data-t="rc_ca_lab">California &middot; $16.90/hr</span><span class="recap-yr">$35,152<small data-t="u_yr">/yr</small></span></div>
+            <div class="bar-track"><div class="bar-fill" style="background:#C24A33;width:100%"></div></div>
+            <div class="recap-break" data-t="rc_ca_brk">$676 / week &middot; $2,929 / month</div>
+          </div>
+          <div class="recap-row fed">
+            <div class="recap-head"><span class="recap-lab" data-t="rc_fed_lab">Federal &middot; $7.25/hr</span><span class="recap-yr">$15,080<small data-t="u_yr">/yr</small></span></div>
+            <div class="bar-track"><div class="bar-fill" style="background:#9AA29A;width:42.9%"></div></div>
+            <div class="recap-break" data-t="rc_fed_brk">$290 / week &middot; $1,257 / month</div>
+          </div>
+        </div>
+        <div class="recap-gap" data-t="t_gap"><b>A difference of $20,072 a year.</b> California's minimum is roughly <b>2.3&times;</b> the federal floor, which has not risen since 2009.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="overtime">
+  <div class="wrap">
+    <div class="sec-head"><div class="overline" data-t="o_over">Calculate</div><h2 data-t="o_h2">Overtime calculator</h2><p data-t="o_p">Enter the hours you worked on each day of a single workweek. The calculator applies California's general overtime rules: time and a half past 8 hours in a day, double time past 12, plus the 40-hour weekly rule and the seventh-consecutive-day premium.</p></div>
+    <div class="ot-card">
+      <div class="ot-days">
+        <label><span data-t="o_d1">Day 1</span><input id="ot-d1" type="number" min="0" max="24" step="0.25" value="10"></label>
+        <label><span data-t="o_d2">Day 2</span><input id="ot-d2" type="number" min="0" max="24" step="0.25" value="10"></label>
+        <label><span data-t="o_d3">Day 3</span><input id="ot-d3" type="number" min="0" max="24" step="0.25" value="10"></label>
+        <label><span data-t="o_d4">Day 4</span><input id="ot-d4" type="number" min="0" max="24" step="0.25" value="10"></label>
+        <label><span data-t="o_d5">Day 5</span><input id="ot-d5" type="number" min="0" max="24" step="0.25" value="10"></label>
+        <label><span data-t="o_d6">Day 6</span><input id="ot-d6" type="number" min="0" max="24" step="0.25" value="0"></label>
+        <label><span data-t="o_d7">Day 7</span><input id="ot-d7" type="number" min="0" max="24" step="0.25" value="0"></label>
+      </div>
+      <div class="ot-rate-wrap"><label><span data-t="o_rate">Hourly rate</span> <span class="opt" data-t="o_rate_opt">(optional, adds pay)</span><div class="ci"><span>$</span><input id="ot-rate" type="number" min="0" step="0.25" data-t-ph="o_rate_ph" placeholder="e.g. 18.00"></div></label></div>
+      <div class="ot-results">
+        <div class="ot-stat"><div class="ot-lab"><span data-t="o_reg">Regular</span> <span>&times;1</span></div><div class="ot-num" id="ot-reg">0</div><div class="ot-sub" data-t="o_reg_s">straight time</div></div>
+        <div class="ot-stat ot-ot"><div class="ot-lab"><span data-t="o_ot">Overtime</span> <span>&times;1.5</span></div><div class="ot-num" id="ot-ot">0</div><div class="ot-sub" data-t="o_ot_s">time and a half</div></div>
+        <div class="ot-stat ot-dt"><div class="ot-lab"><span data-t="o_dt">Double time</span> <span>&times;2</span></div><div class="ot-num" id="ot-dt">0</div><div class="ot-sub" data-t="o_dt_s">double time</div></div>
+        <div class="ot-stat ot-tot"><div class="ot-lab" data-t="o_tot">Total</div><div class="ot-num" id="ot-tot">0</div><div class="ot-sub" data-t="o_tot_s">hours worked</div></div>
+      </div>
+      <div class="ot-note" id="ot-note"></div>
+      <div class="ot-pay" id="ot-pay"></div>
+      <div class="ot-foot" data-t="o_foot">Based on the general rules in Lab. Code &sect;510 and the IWC Wage Orders. It does not account for alternative workweek schedules, exempt employees, or industry-specific wage orders. For your specific circumstances, consult the Labor Commissioner's Office.</div>
+    </div>
+  </div>
+</section>
+<section id="rights">
+  <div class="wrap">
+    <div class="sec-head"><div class="overline" data-t="r_over">Worker protections</div><h2 data-t="r_h2">Your rights as a California worker</h2><p data-t="r_p">California law protects far more than your hourly rate. These are the protections workers ask about most.</p></div>
+    <div class="rights">
+      <div class="right"><h3 data-t="r_ot_h">Overtime pay</h3><p data-t="r_ot_p">Time and a half for hours over 8 in a day or 40 in a week, and for the first 8 hours of a seventh consecutive workday. Double time beyond 12 hours in a day, or beyond 8 on that seventh day.</p><div class="cites"><a class="chip" href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=LAB&amp;sectionNum=510." target="_blank" rel="noopener">LC &sect;510</a><a class="chip" href="https://www.dir.ca.gov/iwc/wageorderindustries.htm" target="_blank" rel="noopener">IWC Wage Orders</a></div></div>
+      <div class="right"><h3 data-t="r_meal_h">Meal periods</h3><p data-t="r_meal_p">An unpaid 30-minute meal period before the end of the fifth hour when you work more than 5 hours, and a second before the tenth hour when you work more than 10. If a meal period is not provided, you are owed one additional hour of pay at your regular rate.</p><div class="cites"><a class="chip" href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=LAB&amp;sectionNum=512." target="_blank" rel="noopener">LC &sect;512</a><a class="chip" href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=LAB&amp;sectionNum=226.7." target="_blank" rel="noopener">LC &sect;226.7</a><a class="chip" href="https://www.dir.ca.gov/iwc/wageorderindustries.htm" target="_blank" rel="noopener">IWC Wage Orders</a></div></div>
+      <div class="right"><h3 data-t="r_rest_h">Rest periods</h3><p data-t="r_rest_p">A paid 10-minute rest period for every 4 hours worked, or major fraction thereof. If a rest period is not provided, you are owed one additional hour of pay at your regular rate.</p><div class="cites"><a class="chip" href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=LAB&amp;sectionNum=226.7." target="_blank" rel="noopener">LC &sect;226.7</a><a class="chip" href="https://www.dir.ca.gov/iwc/wageorderindustries.htm" target="_blank" rel="noopener">IWC Wage Orders</a></div></div>
+      <div class="right"><h3 data-t="r_sick_h">Paid sick leave</h3><p data-t="r_sick_p">You accrue at least 1 hour of paid sick leave for every 30 hours worked, and may use at least 40 hours (5 days) per year. Employers may cap accrual but cannot deny the minimum.</p><div class="cites"><a class="chip" href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=LAB&amp;sectionNum=246." target="_blank" rel="noopener">LC &sect;246</a><a class="chip" href="https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202320240SB616" target="_blank" rel="noopener">SB&nbsp;616</a></div></div>
+      <div class="right"><h3 data-t="r_final_h">Your final paycheck</h3><p data-t="r_final_p">If you are discharged, all wages are due immediately. If you quit with at least 72 hours' notice, they are due on your last day; without notice, within 72 hours. Late final pay can trigger a waiting-time penalty of up to 30 days' wages.</p><div class="cites"><a class="chip" href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=LAB&amp;sectionNum=201." target="_blank" rel="noopener">LC &sect;201</a><a class="chip" href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=LAB&amp;sectionNum=202." target="_blank" rel="noopener">LC &sect;202</a><a class="chip" href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=LAB&amp;sectionNum=203." target="_blank" rel="noopener">LC &sect;203</a></div></div>
+      <div class="right"><h3 data-t="r_viol_h">If your rights are violated</h3><p data-t="r_viol_p">You can file a wage claim with the California Labor Commissioner's Office (DLSE) at no cost and without an attorney. It is unlawful for an employer to fire or retaliate against you for asserting these rights.</p><div class="cites"><a class="chip" href="https://www.dir.ca.gov/dlse/" target="_blank" rel="noopener">DLSE</a><a class="chip" href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=LAB&amp;sectionNum=98.6." target="_blank" rel="noopener">LC &sect;98.6</a><a class="chip" href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=LAB&amp;sectionNum=1102.5." target="_blank" rel="noopener">LC &sect;1102.5</a></div></div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="wrap">
+    <div><h4 data-t="f_h4">This is information, not legal advice.</h4><p data-t="f_p1">These summaries describe California wage and hour rules in general terms; the rules can turn on specific facts, exemptions, and the applicable wage order. For guidance on your situation, contact the California Labor Commissioner's Office or a qualified employment attorney.</p><p data-t="f_p2">Local rates change frequently, and many cities adjust again on July 1. Always confirm the current figure for your worksite with the city or county directly.</p></div>
+    <div class="src" data-t="f_src"><b>Data sources</b><br>California Dept. of Industrial Relations (DIR / DLSE)<br>California Dept. of Finance (statewide adjustment)<br>Individual city &amp; county minimum-wage ordinances<br>California Labor Code &amp; IWC Wage Orders<br><span class="upd">Rates current as of 2026</span></div>
+  </div>
+  <div class="madeby" data-t="f_made">Created by David Amaya</div>
+</footer>
+<script>
+function clamp(t){return Math.max(0,Math.min(1,t));}
+function lerp(a,b,t){return a+(b-a)*t;}
+function wageColor(w){
+  const t=clamp((w-17.0)/(20.25-17.0));
+  const s=[[242,212,154],[225,135,46],[194,74,51]];
+  let c;
+  if(t<0.5){const k=t/0.5; c=[lerp(s[0][0],s[1][0],k),lerp(s[0][1],s[1][1],k),lerp(s[0][2],s[1][2],k)];}
+  else{const k=(t-0.5)/0.5; c=[lerp(s[1][0],s[2][0],k),lerp(s[1][1],s[2][1],k),lerp(s[1][2],s[2][2],k)];}
+  return "rgb("+c.map(Math.round).join(",")+")";
+}
+const STATE_FLOOR = 16.90;
+const HISTORY = {
+  years:["2016","2017","2018","2019","2020","2021","2022","2023","2024","2025","2026"],
+  ca:[10.00,10.50,11.00,12.00,13.00,14.00,15.00,15.50,16.00,16.50,16.90],
+  fed:[7.25,7.25,7.25,7.25,7.25,7.25,7.25,7.25,7.25,7.25,7.25]
+};
+const CITIES = [
+  {name:"West Hollywood",            wage:20.25, lat:34.0900, lng:-118.3617, note:"Highest general local minimum in the state."},
+  {name:"Emeryville",                wage:19.90, lat:37.8313, lng:-122.2852, note:"Adjusts annually on July 1."},
+  {name:"Mountain View",             wage:19.70, lat:37.3861, lng:-122.0839, note:""},
+  {name:"Sunnyvale",                 wage:19.50, lat:37.3688, lng:-122.0363, note:""},
+  {name:"Berkeley",                  wage:19.18, lat:37.8715, lng:-122.2730, note:"Adjusts annually on July 1."},
+  {name:"San Francisco",             wage:19.18, lat:37.7749, lng:-122.4194, note:"City & county. Adjusts July 1."},
+  {name:"Richmond",                  wage:19.18, lat:37.9358, lng:-122.3477, note:""},
+  {name:"Belmont",                   wage:18.95, lat:37.5202, lng:-122.2758, note:""},
+  {name:"El Cerrito",                wage:18.82, lat:37.9161, lng:-122.3108, note:""},
+  {name:"Cupertino",                 wage:18.70, lat:37.3230, lng:-122.0322, note:""},
+  {name:"Los Altos",                 wage:18.70, lat:37.3852, lng:-122.1141, note:""},
+  {name:"Palo Alto",                 wage:18.70, lat:37.4419, lng:-122.1430, note:""},
+  {name:"Santa Clara",               wage:18.70, lat:37.3541, lng:-121.9552, note:""},
+  {name:"Redwood City",              wage:18.65, lat:37.4852, lng:-122.2364, note:""},
+  {name:"San Mateo",                 wage:18.60, lat:37.5630, lng:-122.3255, note:""},
+  {name:"Sonoma",                    wage:18.47, lat:38.2919, lng:-122.4580, note:"Large employers; $17.38 for 25 or fewer."},
+  {name:"San Jose",                  wage:18.45, lat:37.3382, lng:-121.8863, note:""},
+  {name:"Petaluma",                  wage:18.31, lat:38.2324, lng:-122.6367, note:""},
+  {name:"Santa Rosa",                wage:18.21, lat:38.4404, lng:-122.7141, note:""},
+  {name:"Milpitas",                  wage:18.20, lat:37.4323, lng:-121.8996, note:"Adjusts annually on July 1."},
+  {name:"South San Francisco",       wage:18.15, lat:37.6547, lng:-122.4077, note:""},
+  {name:"Pasadena",                  wage:18.04, lat:34.1478, lng:-118.1445, note:"Adjusts annually on July 1."},
+  {name:"San Mateo County (uninc.)", wage:17.95, lat:37.4300, lng:-122.3600, note:"Applies in unincorporated areas only."},
+  {name:"Half Moon Bay",             wage:17.91, lat:37.4636, lng:-122.4286, note:""},
+  {name:"East Palo Alto",            wage:17.90, lat:37.4688, lng:-122.1411, note:""},
+  {name:"Los Angeles (city)",        wage:17.87, lat:34.0522, lng:-118.2437, note:"Adjusts July 1. Hotel & airport workers earn far more."},
+  {name:"Burlingame",                wage:17.86, lat:37.5841, lng:-122.3661, note:""},
+  {name:"Foster City",               wage:17.85, lat:37.5585, lng:-122.2711, note:""},
+  {name:"Santa Monica",              wage:17.81, lat:34.0195, lng:-118.4912, note:"Adjusts July 1. Hotel workers earn $22.50."},
+  {name:"Hayward",                   wage:17.79, lat:37.6688, lng:-122.0808, note:"26+ employees; smaller follow the state floor."},
+  {name:"San Diego (city)",          wage:17.75, lat:32.7157, lng:-117.1611, note:""},
+  {name:"San Carlos",                wage:17.75, lat:37.5072, lng:-122.2605, note:""},
+  {name:"Fremont",                   wage:17.75, lat:37.5485, lng:-121.9886, note:"Adjusts annually on July 1."},
+  {name:"Novato",                    wage:17.73, lat:38.1074, lng:-122.5697, note:"100+ employees; lower tiers for smaller."},
+  {name:"Menlo Park",                wage:17.55, lat:37.4530, lng:-122.1817, note:""},
+  {name:"Daly City",                 wage:17.50, lat:37.6879, lng:-122.4702, note:""},
+  {name:"Alameda",                   wage:17.46, lat:37.7652, lng:-122.2416, note:"Adjusts annually on July 1."},
+  {name:"Oakland",                   wage:17.34, lat:37.8044, lng:-122.2712, note:""}
+];
+/* Built-in roster of California cities so the search only returns a wage for
+   real CA places. Anything not here returns "not recognized" (no wage). Extend freely. */
+const CA_CITIES = ["Adelanto","Agoura Hills","Alameda","Albany","Alhambra","Aliso Viejo","Alturas","American Canyon","Anaheim","Anderson","Angels Camp","Antioch","Apple Valley","Arcadia","Arcata","Arroyo Grande","Artesia","Arvin","Atascadero","Atherton","Atwater","Auburn","Avalon","Avenal","Azusa","Bakersfield","Baldwin Park","Banning","Barstow","Beaumont","Bell","Bell Gardens","Bellflower","Belmont","Belvedere","Benicia","Berkeley","Beverly Hills","Big Bear Lake","Biggs","Bishop","Blue Lake","Blythe","Bradbury","Brawley","Brea","Brentwood","Brisbane","Buellton","Buena Park","Burbank","Burlingame","Calabasas","Calexico","California City","Calimesa","Calipatria","Calistoga","Camarillo","Campbell","Canyon Lake","Capitola","Carlsbad","Carmel-by-the-Sea","Carpinteria","Carson","Cathedral City","Ceres","Cerritos","Chico","Chino","Chino Hills","Chowchilla","Chula Vista","Citrus Heights","Claremont","Clayton","Clearlake","Cloverdale","Clovis","Coachella","Coalinga","Colfax","Colma","Colton","Colusa","Commerce","Compton","Concord","Corcoran","Corning","Corona","Coronado","Corte Madera","Costa Mesa","Cotati","Covina","Crescent City","Cudahy","Culver City","Cupertino","Cypress","Daly City","Dana Point","Danville","Davis","Del Mar","Del Rey Oaks","Delano","Desert Hot Springs","Diamond Bar","Dinuba","Dixon","Dorris","Dos Palos","Downey","Duarte","Dublin","Dunsmuir","East Palo Alto","Eastvale","El Cajon","El Centro","El Cerrito","El Monte","El Segundo","Elk Grove","Emeryville","Encinitas","Escalon","Escondido","Etna","Eureka","Exeter","Fairfax","Fairfield","Farmersville","Ferndale","Fillmore","Firebaugh","Folsom","Fontana","Fort Bragg","Fortuna","Foster City","Fountain Valley","Fowler","Fremont","Fresno","Fullerton","Galt","Garden Grove","Gardena","Gilroy","Glendale","Glendora","Goleta","Gonzales","Grand Terrace","Grass Valley","Greenfield","Gridley","Grover Beach","Guadalupe","Gustine","Half Moon Bay","Hanford","Hawaiian Gardens","Hawthorne","Hayward","Healdsburg","Hemet","Hercules","Hermosa Beach","Hesperia","Hidden Hills","Highland","Hillsborough","Hollister","Holtville","Hughson","Huntington Beach","Huntington Park","Huron","Imperial","Imperial Beach","Indian Wells","Indio","Industry","Inglewood","Ione","Irvine","Irwindale","Isleton","Jackson","Jurupa Valley","Kerman","King City","Kingsburg","La Canada Flintridge","La Habra","La Habra Heights","La Mesa","La Mirada","La Palma","La Puente","La Quinta","La Verne","Lafayette","Laguna Beach","Laguna Hills","Laguna Niguel","Laguna Woods","Lake Elsinore","Lake Forest","Lakeport","Lakewood","Lancaster","Larkspur","Lathrop","Lawndale","Lemon Grove","Lemoore","Lincoln","Lindsay","Live Oak","Livermore","Livingston","Lodi","Loma Linda","Lomita","Lompoc","Long Beach","Loomis","Los Alamitos","Los Altos","Los Altos Hills","Los Angeles","Los Banos","Los Gatos","Loyalton","Lynwood","Madera","Malibu","Mammoth Lakes","Manhattan Beach","Manteca","Maricopa","Marina","Martinez","Marysville","Maywood","McFarland","Mendota","Menifee","Menlo Park","Merced","Mill Valley","Millbrae","Milpitas","Mission Viejo","Modesto","Monrovia","Montague","Montclair","Monte Sereno","Montebello","Monterey","Monterey Park","Moorpark","Moraga","Moreno Valley","Morgan Hill","Morro Bay","Mount Shasta","Mountain View","Murrieta","Napa","National City","Needles","Nevada City","Newark","Newman","Newport Beach","Norco","Norwalk","Novato","Oakdale","Oakland","Oakley","Oceanside","Ojai","Ontario","Orange","Orange Cove","Orinda","Orland","Oroville","Oxnard","Pacific Grove","Pacifica","Palm Desert","Palm Springs","Palmdale","Palo Alto","Palos Verdes Estates","Paradise","Paramount","Parlier","Pasadena","Paso Robles","Patterson","Perris","Petaluma","Pico Rivera","Piedmont","Pinole","Pismo Beach","Pittsburg","Placentia","Placerville","Pleasant Hill","Pleasanton","Plymouth","Point Arena","Pomona","Port Hueneme","Porterville","Poway","Rancho Cordova","Rancho Cucamonga","Rancho Mirage","Rancho Palos Verdes","Rancho Santa Margarita","Red Bluff","Redding","Redlands","Redondo Beach","Redwood City","Reedley","Rialto","Richmond","Ridgecrest","Rio Dell","Rio Vista","Ripon","Riverbank","Riverside","Rocklin","Rohnert Park","Rolling Hills","Rosemead","Roseville","Sacramento","Salinas","San Anselmo","San Bernardino","San Bruno","San Buenaventura","San Carlos","San Clemente","San Diego","San Dimas","San Fernando","San Francisco","San Gabriel","San Jacinto","San Jose","San Juan Capistrano","San Leandro","San Luis Obispo","San Marcos","San Marino","San Mateo","San Pablo","San Rafael","San Ramon","Sand City","Sanger","Santa Ana","Santa Barbara","Santa Clara","Santa Clarita","Santa Cruz","Santa Fe Springs","Santa Maria","Santa Monica","Santa Paula","Santa Rosa","Santee","Saratoga","Sausalito","Scotts Valley","Seal Beach","Seaside","Sebastopol","Selma","Shafter","Sierra Madre","Signal Hill","Simi Valley","Solana Beach","Soledad","Sonoma","Sonora","South El Monte","South Gate","South Lake Tahoe","South Pasadena","South San Francisco","Stanton","Stockton","Suisun City","Sunnyvale","Susanville","Taft","Tehachapi","Temecula","Temple City","Thousand Oaks","Torrance","Tracy","Truckee","Tulare","Turlock","Tustin","Twentynine Palms","Ukiah","Union City","Upland","Vacaville","Vallejo","Ventura","Vernon","Victorville","Villa Park","Visalia","Vista","Walnut","Walnut Creek","Wasco","Waterford","Watsonville","West Covina","West Hollywood","West Sacramento","Westlake Village","Westminster","Westmorland","Wheatland","Whittier","Wildomar","Williams","Willits","Willows","Windsor","Winters","Woodlake","Woodland","Yorba Linda","Yreka","Yuba City","Yucaipa","Yucca Valley"];
+/* California boundary: straight inland borders + dense coastline (smoothed). */
+const INLAND = [[42.00,-124.21],[42.00,-120.00],[39.00,-120.00],[35.00,-114.63],[34.46,-114.37],[34.10,-114.14],[33.42,-114.52],[32.74,-114.62],[32.62,-115.49]];
+const COAST = [[32.54,-117.13],[32.66,-117.24],[32.85,-117.27],[33.00,-117.28],[33.18,-117.39],[33.39,-117.60],[33.46,-117.71],[33.55,-117.81],[33.61,-117.93],[33.66,-118.00],[33.74,-118.11],[33.71,-118.29],[33.74,-118.41],[33.86,-118.40],[34.01,-118.50],[34.04,-118.67],[34.00,-118.81],[34.05,-119.04],[34.15,-119.23],[34.28,-119.45],[34.40,-119.69],[34.42,-119.88],[34.45,-120.14],[34.45,-120.47],[34.58,-120.64],[34.76,-120.63],[34.90,-120.63],[35.13,-120.66],[35.18,-120.74],[35.37,-120.88],[35.54,-121.10],[35.66,-121.28],[35.89,-121.46],[36.10,-121.62],[36.28,-121.86],[36.45,-121.92],[36.55,-121.95],[36.62,-121.90],[36.80,-121.79],[36.95,-121.95],[36.97,-122.03],[37.11,-122.28],[37.18,-122.39],[37.36,-122.41],[37.50,-122.50],[37.60,-122.51],[37.78,-122.51],[37.84,-122.54],[37.91,-122.69],[38.00,-123.02],[38.11,-122.96],[38.24,-122.98],[38.31,-123.05],[38.45,-123.13],[38.51,-123.24],[38.71,-123.45],[38.81,-123.58],[38.91,-123.71],[39.10,-123.73],[39.28,-123.80],[39.45,-123.81],[39.59,-123.78],[39.78,-123.83],[39.88,-123.95],[40.13,-124.27],[40.25,-124.36],[40.44,-124.41],[40.55,-124.39],[40.66,-124.31],[40.74,-124.22],[40.87,-124.16],[41.05,-124.14],[41.16,-124.11],[41.29,-124.10],[41.54,-124.08],[41.75,-124.20],[41.79,-124.25],[41.89,-124.21],[42.00,-124.21]];
+
+const T={
+en:{
+ brand:"California Worker Rights",
+ nav_wages:"Wages", nav_map:"Map", nav_trends:"Trends", nav_ot:"Overtime", nav_rights:"Your Rights",
+ hero_over:"California &middot; Updated 2026",
+ hero_h1:"Know what you're<br><em>owed</em> at work.",
+ hero_lede:"A plain-language guide to California wage and hour law. Find the minimum wage for your city, plus your rights to breaks, overtime, sick leave, and a timely final paycheck, with the governing code section for each.",
+ w_over:"The headline numbers", w_h2:"Minimum wage in California",
+ w_p:"The statewide floor applies to every employer, regardless of size. Some industries and most large cities require more.",
+ rc_state_lab:"Statewide", rc_state_sub:"Applies to all employers and adjusts each January&nbsp;1 for inflation (Lab. Code &sect;1182.12).",
+ rc_ff_lab:"Fast food", rc_ff_sub:"For national chains with 60 or more locations, set by the Fast Food Council (AB&nbsp;1228).",
+ rc_hc_lab:"Health care", rc_hc_sub:"Varies by facility type, up to $24 (SB&nbsp;525). Most tiers rise July&nbsp;1, 2026, and the largest systems reach $25.",
+ rc_ex_lab:"Exempt salary", rc_ex_sub:"The minimum salary to classify an employee as exempt, set at twice the state minimum wage for full-time work.",
+ u_hr:"/hr", u_yr:"/yr",
+ prin:"<b>You are always entitled to the highest minimum wage that applies to you.</b> The federal rate is $7.25, but California's $16.90 takes precedence, and a higher city or industry rate takes precedence over that. For example, a retail worker in San Francisco is owed the city's $19.18 rather than the state's $16.90.",
+ m_over:"Local ordinances", m_h2:"What's the minimum where you work?",
+ m_p:"More than 40 California cities and counties set a minimum wage above the state floor. Your rate is based on where you physically work, not where your employer is headquartered. Search for your city, or zoom in and select a dot.",
+ m_find:"Find your city", m_ph:"e.g. Sacramento, Fresno, Oakland…",
+ m_hint:"Drag to pan &middot; scroll or +/&minus; to zoom",
+ t_over:"The data", t_h2:"What the wage really means",
+ t_p:"California ties its minimum wage to the cost of living, so it rises every year. The federal floor has been frozen since 2009. The chart below shows that trend, and the panel beside it shows what each rate adds up to over a year of work.",
+ t_c1_t:"California vs. federal minimum", t_c1_s:"Statewide hourly rate, January 1 each year",
+ t_rc_t:"The yearly reality", t_rc_s:"Full-time minimum wage (40 hrs/week, all year), California vs. federal",
+ rc_ca_lab:"California &middot; $16.90/hr", rc_ca_brk:"$676 / week &middot; $2,929 / month",
+ rc_fed_lab:"Federal &middot; $7.25/hr", rc_fed_brk:"$290 / week &middot; $1,257 / month",
+ t_gap:"<b>A difference of $20,072 a year.</b> California's minimum is roughly <b>2.3&times;</b> the federal floor, which has not risen since 2009.",
+ o_over:"Calculate", o_h2:"Overtime calculator",
+ o_p:"Enter the hours you worked on each day of a single workweek. The calculator applies California's general overtime rules: time and a half past 8 hours in a day, double time past 12, plus the 40-hour weekly rule and the seventh-consecutive-day premium.",
+ o_d1:"Day 1", o_d2:"Day 2", o_d3:"Day 3", o_d4:"Day 4", o_d5:"Day 5", o_d6:"Day 6", o_d7:"Day 7",
+ o_rate:"Hourly rate", o_rate_opt:"(optional, adds pay)", o_rate_ph:"e.g. 18.00",
+ o_reg:"Regular", o_ot:"Overtime", o_dt:"Double time", o_tot:"Total",
+ o_reg_s:"straight time", o_ot_s:"time and a half", o_dt_s:"double time", o_tot_s:"hours worked",
+ o_foot:"Based on the general rules in Lab. Code &sect;510 and the IWC Wage Orders. It does not account for alternative workweek schedules, exempt employees, or industry-specific wage orders. For your specific circumstances, consult the Labor Commissioner's Office.",
+ r_over:"Worker protections", r_h2:"Your rights as a California worker",
+ r_p:"California law protects far more than your hourly rate. These are the protections workers ask about most.",
+ r_ot_h:"Overtime pay", r_ot_p:"Time and a half for hours over 8 in a day or 40 in a week, and for the first 8 hours of a seventh consecutive workday. Double time beyond 12 hours in a day, or beyond 8 on that seventh day.",
+ r_meal_h:"Meal periods", r_meal_p:"An unpaid 30-minute meal period before the end of the fifth hour when you work more than 5 hours, and a second before the tenth hour when you work more than 10. If a meal period is not provided, you are owed one additional hour of pay at your regular rate.",
+ r_rest_h:"Rest periods", r_rest_p:"A paid 10-minute rest period for every 4 hours worked, or major fraction thereof. If a rest period is not provided, you are owed one additional hour of pay at your regular rate.",
+ r_sick_h:"Paid sick leave", r_sick_p:"You accrue at least 1 hour of paid sick leave for every 30 hours worked, and may use at least 40 hours (5 days) per year. Employers may cap accrual but cannot deny the minimum.",
+ r_final_h:"Your final paycheck", r_final_p:"If you are discharged, all wages are due immediately. If you quit with at least 72 hours' notice, they are due on your last day; without notice, within 72 hours. Late final pay can trigger a waiting-time penalty of up to 30 days' wages.",
+ r_viol_h:"If your rights are violated", r_viol_p:"You can file a wage claim with the California Labor Commissioner's Office (DLSE) at no cost and without an attorney. It is unlawful for an employer to fire or retaliate against you for asserting these rights.",
+ f_h4:"This is information, not legal advice.",
+ f_p1:"These summaries describe California wage and hour rules in general terms; the rules can turn on specific facts, exemptions, and the applicable wage order. For guidance on your situation, contact the California Labor Commissioner's Office or a qualified employment attorney.",
+ f_p2:"Local rates change frequently, and many cities adjust again on July 1. Always confirm the current figure for your worksite with the city or county directly.",
+ f_src:"<b>Data sources</b><br>California Dept. of Industrial Relations (DIR / DLSE)<br>California Dept. of Finance (statewide adjustment)<br>Individual city &amp; county minimum-wage ordinances<br>California Labor Code &amp; IWC Wage Orders<br><span class=\"upd\">Rates current as of 2026</span>",
+ f_made:"Created by David Amaya",
+ sr_local:"Local minimum, higher than the $%S state floor.",
+ sr_state:"No higher local minimum on record. California's statewide minimum applies, and you are always owed the highest rate that covers you.",
+ sr_multi:"%N cities match “%Q”. Select one below to view it on the map.",
+ sr_none:"We don’t recognize “%Q” as a California city. Check the spelling, or browse the list below.",
+ ot_7th:"7th-consecutive-day premium applied",
+ ot_weekly:"%H hrs from the 40-hour weekly rule",
+ ot_pay:"Estimated gross: <b>%T</b> &nbsp;(%R reg + %O OT + %D DT)"
+},
+es:{
+ brand:"Derechos del Trabajador de California",
+ nav_wages:"Salarios", nav_map:"Mapa", nav_trends:"Tendencias", nav_ot:"Horas extra", nav_rights:"Tus derechos",
+ hero_over:"California &middot; Actualizado 2026",
+ hero_h1:"Conoce lo que se te<br><em>debe</em> en el trabajo.",
+ hero_lede:"Una guía en lenguaje sencillo sobre las leyes de salarios y horas de California. Consulta el salario mínimo de tu ciudad, además de tus derechos a descansos, horas extra, licencia por enfermedad y un pago final a tiempo, con la sección del código que rige cada uno.",
+ w_over:"Las cifras principales", w_h2:"Salario mínimo en California",
+ w_p:"El salario mínimo estatal aplica a todos los empleadores, sin importar su tamaño. Algunas industrias y la mayoría de las ciudades grandes exigen más.",
+ rc_state_lab:"Estatal", rc_state_sub:"Aplica a todos los empleadores y se ajusta cada 1.º de enero por inflación (Cód. Lab. &sect;1182.12).",
+ rc_ff_lab:"Comida rápida", rc_ff_sub:"Para cadenas nacionales con 60 o más locales, fijado por el Consejo de Comida Rápida (AB&nbsp;1228).",
+ rc_hc_lab:"Atención médica", rc_hc_sub:"Varía según el tipo de instalación, hasta $24 (SB&nbsp;525). La mayoría de los niveles suben el 1.º de julio de 2026, y los sistemas más grandes llegan a $25.",
+ rc_ex_lab:"Salario exento", rc_ex_sub:"El salario mínimo para clasificar a un empleado como exento, fijado en el doble del salario mínimo estatal por trabajo de tiempo completo.",
+ u_hr:"/h", u_yr:"/año",
+ prin:"<b>Siempre tienes derecho al salario mínimo más alto que te corresponda.</b> La tarifa federal es de $7.25, pero el $16.90 de California prevalece, y una tarifa más alta de la ciudad o la industria prevalece sobre esa. Por ejemplo, a un trabajador del comercio minorista en San Francisco se le debe el $19.18 de la ciudad y no el $16.90 del estado.",
+ m_over:"Ordenanzas locales", m_h2:"¿Cuál es el mínimo donde trabajas?",
+ m_p:"Más de 40 ciudades y condados de California fijan un salario mínimo superior al estatal. Tu tarifa depende de dónde trabajas físicamente, no de dónde tiene su sede tu empleador. Busca tu ciudad, o acércate y selecciona un punto.",
+ m_find:"Busca tu ciudad", m_ph:"p. ej. Sacramento, Fresno, Oakland…",
+ m_hint:"Arrastra para mover &middot; desplázate o usa +/&minus; para acercar",
+ t_over:"Los datos", t_h2:"Lo que realmente significa el salario",
+ t_p:"California vincula su salario mínimo al costo de vida, por lo que sube cada año. El mínimo federal está congelado desde 2009. La gráfica de abajo muestra esa tendencia, y el panel de al lado muestra cuánto suma cada tarifa en un año de trabajo.",
+ t_c1_t:"Mínimo de California vs. federal", t_c1_s:"Tarifa estatal por hora, el 1.º de enero de cada año",
+ t_rc_t:"La realidad anual", t_rc_s:"Salario mínimo de tiempo completo (40 h/semana, todo el año), California vs. federal",
+ rc_ca_lab:"California &middot; $16.90/h", rc_ca_brk:"$676 / semana &middot; $2,929 / mes",
+ rc_fed_lab:"Federal &middot; $7.25/h", rc_fed_brk:"$290 / semana &middot; $1,257 / mes",
+ t_gap:"<b>Una diferencia de $20,072 al año.</b> El mínimo de California es aproximadamente <b>2.3&times;</b> el piso federal, que no ha subido desde 2009.",
+ o_over:"Calcula", o_h2:"Calculadora de horas extra",
+ o_p:"Ingresa las horas que trabajaste en cada día de una sola semana laboral. La calculadora aplica las reglas generales de horas extra de California: tiempo y medio después de 8 horas en un día, tiempo doble después de 12, además de la regla semanal de 40 horas y el recargo por el séptimo día consecutivo.",
+ o_d1:"Día 1", o_d2:"Día 2", o_d3:"Día 3", o_d4:"Día 4", o_d5:"Día 5", o_d6:"Día 6", o_d7:"Día 7",
+ o_rate:"Tarifa por hora", o_rate_opt:"(opcional, agrega el pago)", o_rate_ph:"p. ej. 18.00",
+ o_reg:"Regular", o_ot:"Extra", o_dt:"Doble", o_tot:"Total",
+ o_reg_s:"tiempo ordinario", o_ot_s:"tiempo y medio", o_dt_s:"tiempo doble", o_tot_s:"horas trabajadas",
+ o_foot:"Basado en las reglas generales del Cód. Lab. &sect;510 y las Órdenes Salariales de la IWC. No considera horarios de semana laboral alternativa, empleados exentos ni órdenes salariales específicas de la industria. Para tu situación específica, consulta con la Oficina del Comisionado Laboral.",
+ r_over:"Protecciones del trabajador", r_h2:"Tus derechos como trabajador en California",
+ r_p:"La ley de California protege mucho más que tu tarifa por hora. Estas son las protecciones que los trabajadores preguntan con más frecuencia.",
+ r_ot_h:"Pago de horas extra", r_ot_p:"Tiempo y medio por las horas que superan 8 en un día o 40 en una semana, y por las primeras 8 horas de un séptimo día consecutivo. Tiempo doble después de 12 horas en un día, o después de 8 en ese séptimo día.",
+ r_meal_h:"Períodos de comida", r_meal_p:"Un período de comida no pagado de 30 minutos antes de que termine la quinta hora cuando trabajas más de 5 horas, y un segundo antes de la décima hora cuando trabajas más de 10. Si no se proporciona un período de comida, se te debe una hora adicional de pago a tu tarifa regular.",
+ r_rest_h:"Períodos de descanso", r_rest_p:"Un período de descanso pagado de 10 minutos por cada 4 horas trabajadas, o fracción mayor de estas. Si no se proporciona un período de descanso, se te debe una hora adicional de pago a tu tarifa regular.",
+ r_sick_h:"Licencia pagada por enfermedad", r_sick_p:"Acumulas al menos 1 hora de licencia pagada por enfermedad por cada 30 horas trabajadas, y puedes usar al menos 40 horas (5 días) al año. Los empleadores pueden limitar la acumulación, pero no pueden negar el mínimo.",
+ r_final_h:"Tu pago final", r_final_p:"Si te despiden, todos los salarios se deben de inmediato. Si renuncias con al menos 72 horas de aviso, se deben en tu último día; sin aviso, dentro de 72 horas. Un pago final atrasado puede generar una multa por tiempo de espera de hasta 30 días de salario.",
+ r_viol_h:"Si se violan tus derechos", r_viol_p:"Puedes presentar un reclamo de salarios ante la Oficina del Comisionado Laboral de California (DLSE) sin costo y sin un abogado. Es ilegal que un empleador te despida o tome represalias por hacer valer estos derechos.",
+ f_h4:"Esto es información, no asesoría legal.",
+ f_p1:"Estos resúmenes describen las reglas de salarios y horas de California en términos generales; las reglas pueden depender de hechos específicos, exenciones y la orden salarial aplicable. Para orientación sobre tu situación, comunícate con la Oficina del Comisionado Laboral de California o un abogado laboral calificado.",
+ f_p2:"Las tarifas locales cambian con frecuencia, y muchas ciudades se ajustan de nuevo el 1.º de julio. Confirma siempre la cifra actual de tu lugar de trabajo directamente con la ciudad o el condado.",
+ f_src:"<b>Fuentes de datos</b><br>Depto. de Relaciones Industriales de California (DIR / DLSE)<br>Depto. de Finanzas de California (ajuste estatal)<br>Ordenanzas de salario mínimo de cada ciudad y condado<br>Código Laboral de California y Órdenes Salariales de la IWC<br><span class=\"upd\">Tarifas vigentes a 2026</span>",
+ f_made:"Creado por David Amaya",
+ sr_local:"Mínimo local, superior al piso estatal de $%S.",
+ sr_state:"No hay un mínimo local más alto registrado. Aplica el salario mínimo estatal de California, y siempre se te debe la tarifa más alta que te cubra.",
+ sr_multi:"%N ciudades coinciden con «%Q». Selecciona una abajo para verla en el mapa.",
+ sr_none:"No reconocemos «%Q» como una ciudad de California. Revisa la ortografía o explora la lista de abajo.",
+ ot_7th:"Recargo por séptimo día consecutivo aplicado",
+ ot_weekly:"%H h por la regla semanal de 40 horas",
+ ot_pay:"Pago bruto estimado: <b>%T</b> &nbsp;(%R reg + %O extra + %D doble)"
+}
+};
+window.addEventListener("load", function(){
+  let lang=(navigator.language||"").toLowerCase().indexOf("es")===0?"es":"en";
+  let runOT=null;
+  const K=Math.cos(37*Math.PI/180), SCALE=60, LNG0=-124.6, LAT0=42.15;
+  const P=(lat,lng)=>[(lng-LNG0)*K*SCALE,(LAT0-lat)*SCALE];
+  const pt=p=>{const a=P(p[0],p[1]);return a[0].toFixed(1)+" "+a[1].toFixed(1);};
+  const mid=(a,b)=>[(a[0]+b[0])/2,(a[1]+b[1])/2];
+
+  let d="M"+pt(INLAND[0]);
+  for(let i=1;i<INLAND.length;i++) d+=" L"+pt(INLAND[i]);
+  d+=" L"+pt(COAST[0]);
+  for(let i=1;i<COAST.length-1;i++) d+=" Q"+pt(COAST[i])+" "+pt(mid(COAST[i],COAST[i+1]));
+  d+=" L"+pt(COAST[COAST.length-1])+" Z";
+
+  const allP=INLAND.concat(COAST).map(p=>P(p[0],p[1]));
+  const xs=allP.map(a=>a[0]), ys=allP.map(a=>a[1]);
+  const minx=Math.min.apply(null,xs),maxx=Math.max.apply(null,xs),miny=Math.min.apply(null,ys),maxy=Math.max.apply(null,ys);
+  const PAD=34, vbW=(maxx-minx)+PAD*2, vbH=(maxy-miny)+PAD*2, ox=minx-PAD, oy=miny-PAD;
+
+  const svg=document.getElementById("caMap");
+  svg.setAttribute("viewBox", ox.toFixed(1)+" "+oy.toFixed(1)+" "+vbW.toFixed(1)+" "+vbH.toFixed(1));
+
+  const dots=CITIES.map((c,i)=>{const a=P(c.lat,c.lng); const r=(5+clamp((c.wage-17)/(20.25-17))*6).toFixed(1); return '<circle class="city" data-i="'+i+'" data-r="'+r+'" cx="'+a[0].toFixed(1)+'" cy="'+a[1].toFixed(1)+'" r="'+r+'" fill="'+wageColor(c.wage)+'" stroke="#20251F" stroke-width="0.8" vector-effect="non-scaling-stroke" opacity="0.92"/>';}).join("");
+
+  const labelCfg={"San Francisco":[-4,-4,"end"],"San Jose":[7,4,"start"],"Los Angeles (city)":[7,4,"start"],"San Diego (city)":[7,4,"start"]};
+  let labels="";
+  CITIES.forEach(c=>{ if(labelCfg[c.name]){const a=P(c.lat,c.lng); const g=labelCfg[c.name]; labels+='<text x="'+(a[0]+g[0]).toFixed(1)+'" y="'+(a[1]+g[1]).toFixed(1)+'" text-anchor="'+g[2]+'" vector-effect="non-scaling-stroke" class="maplbl">'+c.name.replace(' (city)','')+'</text>';}});
+
+  svg.innerHTML='<defs><filter id="stsh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#20251F" flood-opacity="0.16"/></filter></defs>'+
+    '<g id="vp"><path d="'+d+'" fill="#E8EDE6" stroke="#B7C2B4" stroke-width="1.2" stroke-linejoin="round" vector-effect="non-scaling-stroke" filter="url(#stsh)"/>'+dots+labels+'</g>';
+
+  const vp=svg.querySelector("#vp");
+  const circles=Array.prototype.slice.call(vp.querySelectorAll(".city"));
+  const labelEls=Array.prototype.slice.call(vp.querySelectorAll(".maplbl"));
+  const tip=document.getElementById("mapTip");
+  const panel=document.getElementById("mapPanel");
+  let hoverShown=null, emph=null, k=1, tx=0, ty=0;
+
+  function placeTip(i){ const c=CITIES[i]; tip.innerHTML='<b>'+c.name+'</b><span class="tw">$'+c.wage.toFixed(2)+T[lang].u_hr+'</span>'+(c.note?'<span class="tn">'+c.note+'</span>':''); const cr=panel.getBoundingClientRect(), dr=circles[i].getBoundingClientRect(); tip.style.left=(dr.left-cr.left+dr.width/2)+"px"; tip.style.top=(dr.top-cr.top)+"px"; tip.classList.add("show"); }
+  function hideTip(){ tip.classList.remove("show"); }
+  function refreshDots(){ circles.forEach((el,j)=>{ const base=parseFloat(el.dataset.r); el.setAttribute("r", ((j===emph?base*1.8:base)/k).toFixed(2)); }); labelEls.forEach(t=>{ t.style.fontSize=(9/k).toFixed(2)+"px"; }); }
+  function setEmph(i,front){ emph=i; circles.forEach(el=>el.classList.remove("sel")); if(i!=null){ circles[i].classList.add("sel"); if(front) circles[i].parentNode.appendChild(circles[i]); } refreshDots(); }
+  function emphasize(i){ setEmph(i,true); }
+  function apply(){ vp.setAttribute("transform","translate("+tx.toFixed(2)+" "+ty.toFixed(2)+") scale("+k.toFixed(3)+")"); refreshDots(); if(hoverShown!=null) placeTip(hoverShown); }
+  function clampPan(){ const a=(ox+vbW)*(1-k), b=ox*(1-k); tx=Math.min(Math.max(tx,Math.min(a,b)),Math.max(a,b)); const c=(oy+vbH)*(1-k), e2=oy*(1-k); ty=Math.min(Math.max(ty,Math.min(c,e2)),Math.max(c,e2)); }
+  function zoomTo(fx,fy,nk){ nk=Math.max(1,Math.min(8,nk)); const wx=(fx-tx)/k, wy=(fy-ty)/k; k=nk; tx=fx-wx*k; ty=fy-wy*k; clampPan(); apply(); }
+  function centerOn(cx,cy,nk){ k=Math.max(1,Math.min(8,nk)); tx=(ox+vbW/2)-cx*k; ty=(oy+vbH/2)-cy*k; clampPan(); apply(); }
+  function clientToSvg(cx,cy){ const m=svg.getScreenCTM(); if(!m) return [0,0]; const p=svg.createSVGPoint(); p.x=cx; p.y=cy; const r=p.matrixTransform(m.inverse()); return [r.x,r.y]; }
+
+  circles.forEach((el,i)=>{
+    el.addEventListener("mouseenter",()=>{ setEmph(i,false); hoverShown=i; placeTip(i); });
+    el.addEventListener("mouseleave",()=>{ if(hoverShown===i){ setEmph(null,false); hoverShown=null; hideTip(); } });
+    el.addEventListener("click",ev=>{ ev.stopPropagation(); highlightRow(i); });
+  });
+
+  svg.addEventListener("wheel",e=>{ e.preventDefault(); const f=clientToSvg(e.clientX,e.clientY); zoomTo(f[0],f[1], k*(e.deltaY<0?1.18:1/1.18)); },{passive:false});
+  svg.addEventListener("dblclick",e=>{ const f=clientToSvg(e.clientX,e.clientY); zoomTo(f[0],f[1],k*1.8); });
+  let dragging=false, ds=null;
+  svg.addEventListener("pointerdown",e=>{ if(e.target.classList&&e.target.classList.contains("city")) return; dragging=true; const s=clientToSvg(e.clientX,e.clientY); ds={x:s[0],y:s[1],tx:tx,ty:ty}; try{svg.setPointerCapture(e.pointerId)}catch(_){} svg.style.cursor="grabbing"; });
+  svg.addEventListener("pointermove",e=>{ if(!dragging) return; const c=clientToSvg(e.clientX,e.clientY); tx=ds.tx+(c[0]-ds.x); ty=ds.ty+(c[1]-ds.y); clampPan(); apply(); });
+  function endDrag(e){ if(dragging){dragging=false; svg.style.cursor="grab"; try{svg.releasePointerCapture(e.pointerId)}catch(_){}} }
+  svg.addEventListener("pointerup",endDrag); svg.addEventListener("pointercancel",endDrag); svg.addEventListener("pointerleave",endDrag);
+  svg.addEventListener("pointerleave",()=>{ if(hoverShown!=null){ setEmph(null,false); hoverShown=null; hideTip(); } });
+  document.getElementById("zin").addEventListener("click",()=>zoomTo(ox+vbW/2,oy+vbH/2,k*1.4));
+  document.getElementById("zout").addEventListener("click",()=>zoomTo(ox+vbW/2,oy+vbH/2,k/1.4));
+  document.getElementById("zreset").addEventListener("click",()=>{ k=1; tx=0; ty=0; apply(); });
+
+  const listEl=document.getElementById("cityList");
+  const rows=[];
+  CITIES.forEach((c,i)=>{ const row=document.createElement("div"); row.className="crow"; row.dataset.name=c.name.toLowerCase(); row.innerHTML='<span class="swatch" style="background:'+wageColor(c.wage)+'"></span><span class="nm">'+c.name+'</span><span class="wg">$'+c.wage.toFixed(2)+'</span>'; row.addEventListener("click",()=>{ const a=P(c.lat,c.lng); centerOn(a[0],a[1],4.2); emphasize(i); highlightRow(i); }); listEl.appendChild(row); rows.push(row); });
+  function highlightRow(i){ rows.forEach(r=>r.classList.remove("on")); const r=rows[i]; if(r){r.classList.add("on"); r.scrollIntoView({block:"nearest",behavior:"smooth"});} }
+  /* ---- search: only returns a wage for real California cities ---- */
+  const filter=document.getElementById("cityFilter"), result=document.getElementById("searchResult");
+  const CA_SET=new Set(CA_CITIES.map(c=>c.toLowerCase()));
+  const CA_PROPER={}; CA_CITIES.forEach(c=>{CA_PROPER[c.toLowerCase()]=c;});
+  const normCity=s=>s.toLowerCase().replace(/,?\s*(ca|calif\.?|california)$/,"").trim();
+  function renderSearch(){
+    const raw=filter.value.trim(); const q=normCity(raw); const D=T[lang];
+    let visible=0, firstIdx=null;
+    rows.forEach((r,i)=>{ const hit=!q||r.dataset.name.indexOf(q)>=0; r.classList.toggle("hide", q&&!hit); if(hit&&q){visible++; if(firstIdx===null)firstIdx=i;} });
+    if(!q){ result.style.display="none"; result.className="sr"; return; }
+    if(visible===1){ const c=CITIES[firstIdx]; result.style.display="block"; result.className="sr sr-found"; result.innerHTML='<div class="sr-city">'+c.name+'</div><div class="sr-rate">$'+c.wage.toFixed(2)+'<small>'+D.u_hr+'</small></div><div class="sr-note">'+D.sr_local.replace("%S",STATE_FLOOR.toFixed(2))+'</div>'; const a=P(c.lat,c.lng); centerOn(a[0],a[1],4.2); emphasize(firstIdx); highlightRow(firstIdx); return; }
+    if(visible>1){ result.style.display="block"; result.className="sr sr-found"; result.innerHTML='<div class="sr-multi">'+D.sr_multi.replace("%N",visible).replace("%Q",raw)+'</div>'; return; }
+    let proper=null;
+    if(CA_SET.has(q)) proper=CA_PROPER[q];
+    else if(q.length>=3){ const pref=CA_CITIES.filter(c=>c.toLowerCase().indexOf(q)===0); if(pref.length>=1) proper=(pref.length===1?pref[0]:raw); }
+    if(proper){ result.style.display="block"; result.className="sr sr-state"; result.innerHTML='<div class="sr-city">'+proper+'</div><div class="sr-rate">$'+STATE_FLOOR.toFixed(2)+'<small>'+D.u_hr+'</small></div><div class="sr-note">'+D.sr_state+'</div>'; }
+    else { result.style.display="block"; result.className="sr sr-none"; result.innerHTML='<div class="sr-note">'+D.sr_none.replace("%Q",raw)+'</div>'; }
+  }
+  filter.addEventListener("input",renderSearch);
+
+  /* ---- trend chart ---- */
+  Chart.defaults.font.family="'Public Sans', sans-serif"; Chart.defaults.font.size=12; Chart.defaults.color="#8B9187";
+  const usd=v=>"$"+Number(v).toFixed(2);
+  new Chart(document.getElementById("trendChart"),{ type:"line",
+    data:{labels:HISTORY.years, datasets:[
+      {label:"California",data:HISTORY.ca,borderColor:"#C24A33",backgroundColor:"rgba(194,74,51,.10)",borderWidth:3,tension:.3,fill:true,pointRadius:3,pointBackgroundColor:"#C24A33",pointHoverRadius:6},
+      {label:"Federal",data:HISTORY.fed,borderColor:"#9AA29A",borderWidth:2,borderDash:[5,4],tension:0,fill:false,pointRadius:0,pointHoverRadius:5}
+    ]},
+    options:{maintainAspectRatio:false, interaction:{mode:"index",intersect:false},
+      plugins:{legend:{labels:{boxWidth:14,boxHeight:14,usePointStyle:true,color:"#525951",font:{weight:600}}},
+        tooltip:{callbacks:{label:ctx=>" "+ctx.dataset.label+": "+usd(ctx.parsed.y)},backgroundColor:"#20251F",padding:10,cornerRadius:8,titleFont:{family:"'JetBrains Mono'"}}},
+      scales:{y:{beginAtZero:false,suggestedMin:6,grid:{color:"rgba(32,37,31,.07)"},ticks:{callback:v=>"$"+v,font:{family:"'JetBrains Mono'"}}},
+        x:{grid:{display:false},ticks:{font:{family:"'JetBrains Mono'"}}}}}
+  });
+
+  /* ---- overtime calculator: Lab. Code §510 general rules ---- */
+  (function(){
+    const dayInputs=[]; for(let i=1;i<=7;i++){ const el=document.getElementById("ot-d"+i); if(el) dayInputs.push(el); }
+    if(dayInputs.length!==7) return;
+    const rateEl=document.getElementById("ot-rate");
+    const outReg=document.getElementById("ot-reg"), outOT=document.getElementById("ot-ot"), outDT=document.getElementById("ot-dt"), outTot=document.getElementById("ot-tot");
+    const noteEl=document.getElementById("ot-note"), payEl=document.getElementById("ot-pay");
+    const fmt=n=>String(Math.round(n*100)/100);
+    const money=n=>"$"+(Math.round(n*100)/100).toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});
+    function run(){
+      const days=dayInputs.map(inp=>Math.max(0,Math.min(24,parseFloat(inp.value)||0)));
+      const allSeven=days.every(h=>h>0);            // 7th-consecutive-day premium only if every day is worked
+      let reg=0, ot=0, dt=0;
+      days.forEach((h,i)=>{
+        if(i===6 && allSeven){ ot+=Math.min(h,8); dt+=Math.max(0,h-8); }   // 7th day: first 8 at 1.5x, rest at 2x
+        else { reg+=Math.min(h,8); ot+=Math.max(0,Math.min(h,12)-8); dt+=Math.max(0,h-12); } // daily: 8-12 at 1.5x, >12 at 2x
+      });
+      let weeklyOT=0;
+      if(reg>40){ weeklyOT=reg-40; reg=40; ot+=weeklyOT; }   // straight-time hours over 40/week become 1.5x (no double-counting)
+      const total=reg+ot+dt;
+      outReg.textContent=fmt(reg); outOT.textContent=fmt(ot); outDT.textContent=fmt(dt); outTot.textContent=fmt(total);
+      const D=T[lang]; const notes=[];
+      if(allSeven) notes.push(D.ot_7th);
+      if(weeklyOT>0) notes.push(D.ot_weekly.replace("%H",fmt(weeklyOT)));
+      noteEl.textContent=notes.join("  ·  ");
+      const r=Math.max(0,parseFloat(rateEl.value)||0);
+      if(r>0){ const regP=reg*r, otP=ot*r*1.5, dtP=dt*r*2; payEl.innerHTML=D.ot_pay.replace("%T",money(regP+otP+dtP)).replace("%R",money(regP)).replace("%O",money(otP)).replace("%D",money(dtP)); payEl.style.display="block"; }
+      else { payEl.style.display="none"; }
+    }
+    runOT=run;
+    dayInputs.forEach(inp=>inp.addEventListener("input",run));
+    rateEl.addEventListener("input",run);
+    run();
+  })();
+
+  function applyLang(l){
+    lang=l; document.documentElement.lang=l;
+    document.querySelectorAll("[data-t]").forEach(el=>{ const k=el.getAttribute("data-t"); if(T[l][k]!==undefined) el.innerHTML=T[l][k]; });
+    document.querySelectorAll("[data-t-ph]").forEach(el=>{ const k=el.getAttribute("data-t-ph"); if(T[l][k]!==undefined) el.setAttribute("placeholder",T[l][k]); });
+    document.querySelectorAll(".langtoggle button").forEach(b=>b.classList.toggle("on", b.dataset.lang===l));
+    renderSearch(); if(runOT) runOT();
+  }
+  document.querySelectorAll(".langtoggle button").forEach(b=>b.addEventListener("click",function(){ applyLang(b.dataset.lang); }));
+  applyLang(lang);
+});
+</script>
+</body>
+</html>
